@@ -71,7 +71,7 @@ def download_cover(folder, book):
 
 
 def update():
-    folders = os.listdir('./')
+    folders = os.listdir('./covers')
     series = []
     for folder in folders:
         if re.match(r'\d+ .+', folder):
