@@ -15,6 +15,11 @@ def extract_books_from_url(url):
     r = requests.get(url)
     d = pq(r.text)
     h3 = d('h3.product-hdg a')
+    if not h3:
+        """series contains only one book
+        https://bookwalker.jp/series/120052/
+        """
+        h3 = d('span.product-hdg a')
     result = []
     for i in h3:
         title = pq(i).text().strip()
