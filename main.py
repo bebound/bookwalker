@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 import re
+import sys
 from multiprocessing import Pool
 
 import requests
@@ -102,7 +103,10 @@ def download_by_series(series):
 
 
 def main():
-    user_input = input('Input series/update:')
+    if len(sys.argv) > 1:
+        user_input = sys.argv[1]
+    else:
+        user_input = input('Input series/update:')
     if user_input == 'update':
         update()
     else:
